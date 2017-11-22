@@ -1,0 +1,10 @@
+<div class="thumbnail">
+  <img src={{person.pic}} class="fixwidth" alt="person image" />
+  <div class="caption clearfix">
+    <h5>{{person.name}}</h5>
+    <div class="person-wrap">
+      <button *ngIf="person.added" mat-button (click)="RemovePerson(person)">Remove
+      </button>
+    </div>
+  </div>
+</div>

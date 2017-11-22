@@ -1,0 +1,13 @@
+
+  <mat-list>
+    <mat-list-item *ngFor="let person of persons">
+      <app-person-item [person]=person></app-person-item>
+    </mat-list-item>
+  </mat-list>
+  <button type="button" mat-button (click)="sidenav.close()">
+    <i class="material-icons">arrow_back</i>
+  </button>
+  <button mat-fab color="primary" (click)="addPerson()">
+    <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+  </button>
+

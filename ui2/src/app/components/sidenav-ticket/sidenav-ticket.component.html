@@ -1,0 +1,25 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav opened="false" position="start">
+    <mat-sidenav-container>
+      <mat-sidenav #sidenavRight opened="false" position="end">
+        <app-person-list [sidenav]="sidenavRight"></app-person-list>
+      </mat-sidenav>
+      <div class="my-content">
+
+        <button type="button" mat-button (click)="sidenavRight.open()">
+          <i class="material-icons">people</i>
+        </button>
+        <button type="button" mat-button (click)="sidenav.close()">
+          <i class="material-icons">arrow_back</i>
+        </button>
+        <app-pay-ticket></app-pay-ticket>
+
+      </div>
+    </mat-sidenav-container>
+  </mat-sidenav>
+  <div class="my-content">
+    <app-toolbar [sidenav]="sidenav"></app-toolbar>
+    <app-main-content></app-main-content>
+  </div>
+
+</mat-sidenav-container>
