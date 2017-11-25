@@ -16,6 +16,7 @@ import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
 
 import { FakeDataService } from './services/fake-data.service.service';
+import { LoginComponent } from './components/login/login.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { FakeDataService } from './services/fake-data.service.service';
     PersonListComponent,
     PayTicketComponent,
     ToolbarComponent,
-    MainContentComponent
+    MainContentComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
