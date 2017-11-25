@@ -24,20 +24,39 @@ mat-sidenav {
     flex-direction: column;
     max-height: 500px;
     min-width: 300px;
-  }
-  
-  .mat-table {
+}
+
+.mat-table {
     overflow: auto;
     max-height: 500px;
-  }
+}
 
-  .mat-fab {
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-  }
+.mat-fab {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
 
-  .blocks{
-      margin-bottom: 20px;
-      width: 90%;
-  }
+.blocks {
+    margin-bottom: 20px;
+    width: 90%;
+}
+
+h2,
+h1,
+h3,
+h4,
+h5 {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+p {
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 12px;
+}
+
+p span{
+    font-size: 12px;
+}

@@ -9,6 +9,7 @@ import { PersonListComponent } from './components/person-list/person-list.compon
 import { PayTicketComponent } from './components/pay-ticket/pay-ticket.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { MainContentComponent } from './components/main-content/main-content.component';
+import { HttpClientModule } from '@angular/common/http';
 
 import { TableRouting } from './table.routing';
 
@@ -18,7 +19,8 @@ import { TableRouting } from './table.routing';
     CommonModule,
     TableRouting,
     MaterialModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ],
   declarations: [
     SidenavTicketComponent,

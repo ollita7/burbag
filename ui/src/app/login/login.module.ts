@@ -6,6 +6,8 @@ import { LoginComponent } from './components/login/login.component';
 import { LogonRouting } from './login.routing';
 import { MaterialModule } from '..//shared/material/material.module';
 
+import { LoginService } from './services/login.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { MaterialModule } from '..//shared/material/material.module';
   ],
   exports: [
     LoginComponent
-  ]
+  ],
+  providers: [LoginService]
 
 })
 export class LoginModule { }
