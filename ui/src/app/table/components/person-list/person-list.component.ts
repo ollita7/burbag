@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { Persons, PersonsState } from '../../models/Persons';
-import { FakeDataService } from '../../services/fake-data.service.service';
+import { Persons, PersonsState } from '../../../models/Persons';
+import { FakeDataService } from '../../../services/fake-data.service.service';
 import { Subscription } from 'rxjs/Subscription';
 import { MatSidenav } from '@angular/material';
 
