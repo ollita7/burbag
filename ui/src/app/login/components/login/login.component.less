@@ -1,0 +1,51 @@
+.login {
+    /* The image used */
+    background-image: url("../../../../assets/madera.jpg");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    .img-logo{
+        width: 250px;
+    }
+    .form-container {
+        display: flex;
+        flex-direction: column;
+         ::ng-deep .mat-form-field-placeholder {
+            color: white;
+        }
+         ::ng-deep .mat-focused .mat-form-field-placeholder {
+            color: white;
+        }
+         ::ng-deep .mat-form-field-underline .mat-form-field-ripple {
+            background-color: white;
+        }
+         ::ng-deep .mat-form-field-underline {
+            background-color: white;
+        }
+        .mat-raised-button {
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+    }
+    .footer {
+        .img-footer {
+            /* The image used */
+            background-image: url("../../../../assets/chela.png");
+            /* Full height */
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: top;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        height: 30%;
+        width: 100%;
+    }
+}

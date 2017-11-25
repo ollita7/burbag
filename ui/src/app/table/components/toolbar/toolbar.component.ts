@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { MatSidenav } from '@angular/material';
+import { MatIconRegistry } from '@angular/material';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-toolbar',
@@ -9,7 +11,11 @@ import { MatSidenav } from '@angular/material';
 export class ToolbarComponent implements OnInit {
   @Input() sidenav: MatSidenav;
 
-  constructor() { }
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+    iconRegistry.addSvgIcon(
+      'bill-icon',
+      sanitizer.bypassSecurityTrustResourceUrl('../../../../assets/bill.svg'));
+  }
 
   ngOnInit() {
   }
