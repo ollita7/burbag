@@ -9,7 +9,7 @@ declare let d3: any;
   </div>
 `,
   styleUrls: [
-    '../../../../node_modules/nvd3/build/nv.d3.css'
+    '../../../../../node_modules/nvd3/build/nv.d3.css'
   ],
   encapsulation: ViewEncapsulation.None
 })

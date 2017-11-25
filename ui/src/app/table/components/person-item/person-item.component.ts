@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Persons } from '../../models/Persons';
-import { FakeDataService } from '../../services/fake-data.service.service';
+import { Persons } from '../../../models/Persons';
+import { FakeDataService } from '../../../services/fake-data.service.service';
 @Component({
   selector: 'app-person-item',
   templateUrl: './person-item.component.html',

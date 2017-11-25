@@ -1,40 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { MaterialModule } from './shared/material/material.module';
-import { NvD3Module } from 'ng2-nvd3';
-import 'd3';
-import 'nvd3';
-import { ChartComponent } from './components/chart/chart.component';
-import { SidenavTicketComponent } from './components/sidenav-ticket/sidenav-ticket.component';
-import { PersonItemComponent } from './components/person-item/person-item.component';
-import { PersonListComponent } from './components/person-list/person-list.component';
-import { PayTicketComponent } from './components/pay-ticket/pay-ticket.component';
-import { ToolbarComponent } from './components/toolbar/toolbar.component';
-import { MainContentComponent } from './components/main-content/main-content.component';
+
+import { TableModule } from './table/table.module';
 
 import { FakeDataService } from './services/fake-data.service.service';
-import { LoginComponent } from './components/login/login.component';
+import { AnalyticsModule } from './analytics/analytics.module';
+import { LoginModule } from './login/login.module';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ChartComponent,
-    SidenavTicketComponent,
-    PersonItemComponent,
-    PersonListComponent,
-    PayTicketComponent,
-    ToolbarComponent,
-    MainContentComponent,
-    LoginComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    MaterialModule,
-    NvD3Module
+    TableModule,
+    LoginModule,
+    AnalyticsModule,
+    RouterModule
   ],
   providers: [FakeDataService],
   bootstrap: [AppComponent]
