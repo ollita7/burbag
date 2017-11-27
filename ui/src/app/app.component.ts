@@ -13,10 +13,14 @@ import * as firebase from 'firebase/app';
 export class AppComponent implements OnInit {
   private currentUser: firebase.User = null;
   constructor(private auth: AuthService) {
+    console.log(auth);
   }
 
   ngOnInit() {
-    this.auth.getAuthState().subscribe((user: firebase.User) => this.currentUser = user);
+    this.auth.getAuthState().subscribe((user: firebase.User) => {
+      this.currentUser = user;
+      console.log(this.currentUser);
+    });
   }
 
 }

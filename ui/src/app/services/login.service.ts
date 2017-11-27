@@ -10,8 +10,7 @@ export class AuthService {
   public currentUser: firebase.User = null;
 
   constructor(public afAuth: AngularFireAuth) {
-    this.authState = this.afAuth.authState;
-    this.authState.subscribe(user => {
+    this.afAuth.authState.subscribe(user => {
       if (user) {
         this.currentUser = user;
       } else {

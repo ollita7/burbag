@@ -19,7 +19,9 @@ export class LoginComponent {
   }
 
   public loginWithGoogle(): void {
-    this.auth.loginWithGoogle();
+    this.auth.loginWithGoogle().then(response => {
+      console.log(response);
+    });
   }
 
   public loginWithFacebook(): void {
