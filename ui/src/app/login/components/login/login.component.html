@@ -9,6 +9,10 @@
       <mat-form-field class="mat-field">
         <input matInput placeholder="Password">
       </mat-form-field>
+
+      <a mat-raised-button (click)="loginPerformed('facebook')">Facebook</a>
+      <a mat-raised-button (click)="loginPerformed('google')">Google</a>
+
       <button mat-raised-button (click)="login()">Basic</button>
     </form>
   </div>

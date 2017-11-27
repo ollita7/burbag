@@ -7,8 +7,24 @@ import { AppComponent } from './app.component';
 import { TableModule } from './table/table.module';
 
 import { FakeDataService } from './services/fake-data.service.service';
+import { AuthService } from './services/login.service';
+
 import { AnalyticsModule } from './analytics/analytics.module';
 import { LoginModule } from './login/login.module';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+export const firebaseConfig = {
+  apiKey: 'AIzaSyAH1Vr8LEX5T2m_i2yrzjSosJyoBrCKbU4',
+  authDomain: 'beerbug-92bc5.firebaseapp.com',
+  databaseURL: 'https://beerbug-92bc5.firebaseio.com',
+  projectId: 'beerbug-92bc5',
+  storageBucket: 'beerbug-92bc5.appspot.com',
+  messagingSenderId: '916427182233'
+};
+
 
 
 
@@ -21,9 +37,12 @@ import { LoginModule } from './login/login.module';
     TableModule,
     LoginModule,
     AnalyticsModule,
-    RouterModule
+    RouterModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [FakeDataService],
+  providers: [FakeDataService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
