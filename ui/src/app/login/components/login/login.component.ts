@@ -1,20 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../../services/login.service';
+import { AuthService } from '../../../services/login.service';
+import { Observable } from 'rxjs/Observable';
+import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.less']
 })
-export class LoginComponent implements OnInit {
-
-  constructor(private loginService: LoginService) { }
-
-  ngOnInit() {
+export class LoginComponent {
+  constructor(private auth: AuthService) {
+  }
+  public loginPerformed(sm: string): void {
+    switch (sm) {
+      case 'facebook': this.loginWithFacebook(); break;
+      case 'google': this.loginWithGoogle(); break;
+    }
   }
 
-  public login(): void {
-    this.loginService.performLogin();
+  public loginWithGoogle(): void {
+    this.auth.loginWithGoogle();
+  }
+
+  public loginWithFacebook(): void {
+    this.auth.loginFacebook();
+  }
+
+  public loginWithTwitter(): void {
+    this.auth.loginWithTwitter();
   }
 
 }

@@ -4,9 +4,9 @@ import { RouterModule } from '@angular/router';
 
 import { LoginComponent } from './components/login/login.component';
 import { LogonRouting } from './login.routing';
-import { MaterialModule } from '..//shared/material/material.module';
+import { MaterialModule } from '../shared/material/material.module';
 
-import { LoginService } from './services/login.service';
+import { AuthService } from '../services/login.service';
 
 @NgModule({
   imports: [
@@ -21,7 +21,7 @@ import { LoginService } from './services/login.service';
   exports: [
     LoginComponent
   ],
-  providers: [LoginService]
+  providers: [AuthService]
 
 })
 export class LoginModule { }
