@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
+import { BeersService } from '../../../services/beers.service';
+import { Observable } from 'rxjs/Observable';
+import { BeerItem } from '../../../models/Persons';
 
 @Component({
   selector: 'app-main-content',
@@ -7,27 +10,17 @@ import { MatTableDataSource } from '@angular/material';
   styleUrls: ['./main-content.component.css']
 })
 export class MainContentComponent implements OnInit {
-  public menuItems: Array<IMenuItems>;
-  constructor() { }
+  public beers: BeerItem[] = [];
+  constructor(private beersService: BeersService) {
 
-
-
-  ngOnInit() {
-    this.menuItems = [{
-      name: 'sarasa1',
-      price: 500,
-      img: `https://i.pinimg.com/originals/8a/53/24/8a532461a80c7ee61a2c3cbee44d7151.jpg`
-    }, {
-      name: 'sarasa2',
-      price: 500,
-      img: `https://i.pinimg.com/originals/8a/53/24/8a532461a80c7ee61a2c3cbee44d7151.jpg`
-    }];
   }
-
-}
-
-export interface IMenuItems {
-  name: string;
-  price: number;
-  img: string;
+  ngOnInit() {
+    this.beersService.getBeers().subscribe((items: BeerItem[]) => {
+      this.beers = items;
+      console.log(items);
+    });
+  }
+  public trackByFn(item: BeerItem) {
+    return item != null ? item.id : null;
+  }
 }

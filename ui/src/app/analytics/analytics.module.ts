@@ -8,6 +8,7 @@ import 'nvd3';
 import { ChartComponent } from './components/chart/chart.component';
 
 import { AnalyticsRouting } from './analytics.routing';
+import { BeersService } from '../services/beers.service';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { AnalyticsRouting } from './analytics.routing';
   ],
   exports: [
     ChartComponent
-  ]
+  ],
+  providers: [BeersService]
 })
 export class AnalyticsModule { }
