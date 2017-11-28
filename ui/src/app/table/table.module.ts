@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { TableRouting } from './table.routing';
 
+import { BeersService } from '../services/beers.service';
+
 
 @NgModule({
   imports: [
@@ -39,5 +41,6 @@ import { TableRouting } from './table.routing';
     MainContentComponent,
 
   ],
+  providers: [BeersService]
 })
 export class TableModule { }
