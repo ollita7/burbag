@@ -1,39 +1,40 @@
-<div class="example-container mat-elevation-z8">
-  <h2>Cuenta</h2>
-  <div class="example-header">
-    <mat-form-field>
-      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-    </mat-form-field>
+<div id="receiptWrapper" class="receiptWrapper">
+  <div class="receipt zig-zag zig-zag-top zig-zag-bottom">
+    <img class="center" src="../../../../assets/barLogo.png">
+    <div class="receiptHeader">More SuperMarket
+      <br>
+      <span> #21, Gayathri Nagar, Hyderabad, Telangana, India, 500079</span>
+    </div>
+    <div class="receiptBody">
+      <div class="receiptItem">
+        <table class="receiptTable">
+          <thead>
+            <tr>
+              <th>S.No</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Qty</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of response.data">
+              <td>num</td>
+              <td>{{item.name}}</td>
+              <td>{{item.price}}</td>
+              <td>{{item.quantity}}</td>
+              <td>{{item.price * item.quantity}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="receiptFooter">
+      <span>242005521
+        <br>,242005507
+        <br>,sales@moresupermarkets.com
+        <br>
+      </span>
+    </div>
   </div>
-
-  <mat-table #table [dataSource]="dataSource">
-
-    <!-- Position Column -->
-    <ng-container matColumnDef="position">
-      <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
-    </ng-container>
-
-    <!-- Name Column -->
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
-    </ng-container>
-
-    <!-- Weight Column -->
-    <ng-container matColumnDef="weight">
-      <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.weight}} </mat-cell>
-    </ng-container>
-
-    <!-- Color Column -->
-    <ng-container matColumnDef="symbol">
-      <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
-    </ng-container>
-
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-  </mat-table>
-  <button mat-raised-button color="primary">Pagar</button>
 </div>

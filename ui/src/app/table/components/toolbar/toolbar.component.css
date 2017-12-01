@@ -1,4 +1,15 @@
-.mat-icon{
+.mat-icon {
     height: 40px;
     width: 40px;
+    color: white;
+}
+
+.main-header {
+    color: black;
+    background: #1f7545;
+    height: 65px;
+    padding: 12px 5px 5px 12px;
+    position: fixed;
+    width: 100%;
+    left: 0;
 }

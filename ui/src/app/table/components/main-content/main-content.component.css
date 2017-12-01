@@ -12,6 +12,23 @@
     background-size: cover;
 }
 
-.mat-list-item-content{
+.mat-list-item-content {
     padding: 0;
+}
+
+.round-button {
+    border-radius: 50%;
+    height: 18px;
+    width: 18px;
+    background: blue;
+    border: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+.round-button .mat-icon {
+    height: 18px;
+    width: 18px;
+    margin-left: -5px;
 }

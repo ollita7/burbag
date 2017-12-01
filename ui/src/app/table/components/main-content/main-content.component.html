@@ -3,15 +3,14 @@
     <div class="blocks" fxFlex>
 
       <h2>Menu</h2>
-      <div>largo {{beers?.length}}</div>
       <div class="menuItem" fxLayout="row" fxLayoutAlign="space-between stretch" *ngFor="let item of beers;trackBy:trackByFn">
         <!--<img mat-list-avatar [src]="item.img">-->
         <p mat-line>{{item.name}}</p>
         <p mat-line>
           <span>$ {{item.price}} </span>
         </p>
-        <button mat-mini-fab color="primary" (click)="addProduct()">
-          <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+        <button class="round-button" (click)="addProduct()">
+          <mat-icon svgIcon="plus-icon"></mat-icon>
         </button>
       </div>
     </div>

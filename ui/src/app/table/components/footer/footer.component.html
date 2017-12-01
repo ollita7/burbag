@@ -1,0 +1,82 @@
+<div class="footer-beer">
+
+  <header>
+    <div class="wrap">
+      <div fxLayout="row" fxLayoutAlign="space-around center">
+        <div>
+          <p>Tu Mesa</p>
+        </div>
+        <div>
+          <i class="material-icons">people</i>
+          <a (click)="tooglePersonalInfo()">
+            <i class="material-icons">keyboard_arrow_up</i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="wrap">
+      <p>Unfortunately, this won't work in IE8 or below.</p>
+    </div>
+  </main>
+  <footer>
+    <div class="wrap">
+    </div>
+  </footer>
+  <div id="bottom-sheet" class="overlay" [ngClass]="{'active':isOpen}">
+
+    <aside class="social" fxLayout="column" fxLayoutAlign="start center" tabindex="-1" role="dialog" aria-labelledby="modal-label"
+      aria-hidden="true">
+
+      <a (click)="tooglePersonalInfo()" class="btn-close" aria-hidden="true">
+        <i class="material-icons">close</i>
+      </a>
+      <div class="profile">
+        <img class="img-circle" src="../../../../assets/profile_img.png">
+        <h1>Juan Pedro Damiani</h1>
+      </div>
+      <div class="general-payment">
+        <div class="payment-title">
+          <h2>Cuenta General</h2>
+        </div>
+        <div class="payment-items">
+          <div class="payment-item">
+            <div class="item-name">
+              <p>2 Coronas 350ml</p>
+            </div>
+            <div class="item-price">
+              <p>$300</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="general-payment">
+        <div class="payment-title">
+          <h2>Cuenta Personal</h2>
+        </div>
+        <div class="payment-items">
+          <div class="payment-item">
+            <div class="item-name">
+              <p>2 Coronas 350ml</p>
+            </div>
+            <div class="item-price">
+              <p>$300</p>
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+      <div class="general-payment payment-footer">
+        <button mat-raised-button class="payMyDebt">
+          PAGAR MI PARTE
+        </button>
+      </div>
+
+    </aside>
+
+  </div>
+
+</div>

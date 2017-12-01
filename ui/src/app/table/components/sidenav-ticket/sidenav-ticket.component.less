@@ -1,0 +1,59 @@
+.side-nav-beer {
+    height: 100%;
+    .page-wrap {
+        float: right;
+        width: 100%;
+        transition: width 0.4s ease;
+        height: 100%;
+    }
+    .main-nav {
+        position: absolute;
+        top: 83px;
+        width: 0;
+        height: 100%;
+        background: transparent;
+        overflow-y: auto;
+        transition: width 0.4s ease;
+        z-index: 1;
+    }
+    .main-nav .icon {
+        display: inline-block;
+        padding-right: .5em;
+    }
+    .main-nav a {
+        display: block;
+        color: white;
+        white-space: nowrap;
+        margin-left: -3.5em;
+        padding: 15px;
+        border-top: 1px solid #484848;
+        border-bottom: 1px solid #2E2E2E;
+        transition: margin 0.5s ease;
+    }
+    .main-nav a:hover,
+    .main-nav a:focus {
+        background: #7AB800;
+    }
+    .content {
+        height: 100%;
+        padding: 80px 0px 0px 0px;
+    }
+    .close-menu {
+        display: none;
+    }
+    #main-nav.active {
+        width: 300px;
+    }
+    #main-nav.active a {
+        margin-left: 0;
+    }
+    #main-nav.active ~.page-wrap {
+        width: 100%;
+    }
+    #main-nav:target~.main-header .open-menu {
+        display: none;
+    }
+    #main-nav:target~.main-header .close-menu {
+        display: block;
+    }
+}
