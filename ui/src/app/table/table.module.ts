@@ -17,6 +17,7 @@ import { BeersService } from '../services/beers.service';
 import { FooterComponent } from './components/footer/footer.component';
 
 
+
 @NgModule({
   imports: [
     CommonModule,
