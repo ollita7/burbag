@@ -21,8 +21,6 @@ export class MainContentComponent implements OnInit {
       sanitizer.bypassSecurityTrustResourceUrl('../../../../assets/ic_add_white_18px.svg'));
   }
 
-
-  }
   ngOnInit() {
     this.beersService.getBeers().subscribe((items: BeerItem[]) => {
       this.beers = items;
