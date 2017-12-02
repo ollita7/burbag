@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material';
 import { FakeDataService } from './services/fake-data.service.service';
-import { AuthService } from './services/login.service';
+import { AuthService } from './services/auth/login.service';
 import * as firebase from 'firebase/app';
+import { Router } from '@angular/router';
+import { isNil } from 'lodash';
 
 
 @Component({
@@ -11,15 +13,16 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  private currentUser: firebase.User = null;
-  constructor(private auth: AuthService) {
+  constructor(private auth: AuthService, private router: Router) {
     console.log(auth);
   }
 
   ngOnInit() {
-    this.auth.getAuthState().subscribe((user: firebase.User) => {
-      this.currentUser = user;
-      console.log(this.currentUser);
+    this.auth.getAuthState.subscribe((user: firebase.User) => {
+      if (!isNil(user)) {
+        this.auth.currentUser = user;
+        this.router.navigateByUrl('/home');
+      }
     });
   }
 

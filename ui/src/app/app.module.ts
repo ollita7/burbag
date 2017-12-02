@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { TableModule } from './table/table.module';
 
 import { FakeDataService } from './services/fake-data.service.service';
-import { AuthService } from './services/login.service';
+import { AuthService } from './services/auth/login.service';
+import { AuthGuardService } from './services/auth/auth-guard.service';
 
 import { AnalyticsModule } from './analytics/analytics.module';
 import { LoginModule } from './login/login.module';
@@ -42,7 +43,7 @@ export const firebaseConfig = {
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  providers: [FakeDataService, AuthService],
+  providers: [FakeDataService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
