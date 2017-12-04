@@ -6,7 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { LogonRouting } from './login.routing';
 import { MaterialModule } from '../shared/material/material.module';
 
-import { AuthService } from '../services/login.service';
+import { AuthService } from '../services/auth/login.service';
 
 @NgModule({
   imports: [

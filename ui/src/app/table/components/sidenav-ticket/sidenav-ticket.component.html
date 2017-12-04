@@ -1,3 +1,40 @@
+<div class="side-nav-beer">
+  <nav class="main-nav" id="main-nav" [ngClass]="{'active':isOpen}">
+    <div>
+      <app-pay-ticket [isOpen]="isOpen"></app-pay-ticket>
+    </div>
+  </nav>
+  <app-toolbar (sideBarChange)="tooglePayTicket()"></app-toolbar>
+
+  <div class="page-wrap">
+
+    <div class="content">
+      <app-main-content></app-main-content>
+
+    </div>
+
+  </div>
+</div>
+<app-footer></app-footer>
+<!--
+<div class="side-nav-beer">
+ <mat-sidenav-container>
+    <mat-sidenav #sidenav opened="true" position="start">
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="my-content">
+        <app-toolbar [sidenav]="sidenav"></app-toolbar>
+        <app-main-content></app-main-content>
+      </div>
+    </mat-sidenav-content>
+
+
+  </mat-sidenav-container>
+
+</div>
+-->
+<!--
 <mat-sidenav-container>
   <mat-sidenav #sidenav opened="false" position="start">
     <mat-sidenav-container>
@@ -23,3 +60,4 @@
   </div>
 
 </mat-sidenav-container>
+-->

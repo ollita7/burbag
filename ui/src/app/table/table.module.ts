@@ -14,6 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { TableRouting } from './table.routing';
 
 import { BeersService } from '../services/beers.service';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import { BeersService } from '../services/beers.service';
     PersonListComponent,
     PayTicketComponent,
     ToolbarComponent,
-    MainContentComponent
+    MainContentComponent,
+    FooterComponent
   ],
   exports: [
     SidenavTicketComponent,

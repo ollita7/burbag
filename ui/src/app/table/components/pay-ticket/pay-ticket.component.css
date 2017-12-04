@@ -1,0 +1,79 @@
+@import url(https://fonts.googleapis.com/css?family=Poiret+One);
+.receiptWrapper {
+    background: transparent;
+    height: 100%;
+    font-family: 'Poiret One', cursive;
+}
+
+img.center {
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 100px;
+}
+
+.receiptWrapper {
+    height: 100%;
+    margin: 0 auto;
+    display: inline-block;
+}
+
+.receipt {
+    padding: 10px;
+    text-transform: Uppercase;
+    position: relative;
+    top: 20px;
+    -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 2px;
+}
+
+.receipt .receiptHeader,
+.receipt .receiptItem,
+.receipt .receiptFooter {
+    text-align: center;
+}
+
+.receipt .receiptTable {
+    margin: 0 auto;
+}
+
+.receipt .receiptTable>thead>tr>th,
+.receipt .receiptTable>tbody>tr>td {
+    text-align: left;
+}
+
+.receipt .receiptTable>thead>tr>th:nth-child(2),
+.receipt .receiptTable>tbody>tr>td:nth-child(2) {
+    text-align: left;
+}
+
+.zig-zag {
+    background: #FFF;
+    position: relative;
+}
+
+.zig-zag-top:before,
+.zig-zag-bottom:after {
+    background-repeat: repeat-x;
+    content: " ";
+    display: block;
+    height: 32px;
+    width: 100%;
+    position: absolute;
+    z-index: 0;
+    left: 0;
+}
+
+.zig-zag-top:before {
+    background: linear-gradient(-45deg, #FFF 16px, red 16px, blue 16px, transparent 0), linear-gradient(45deg, #FFF 16px, transparent 0);
+    background-size: 22px 32px;
+    background-position: left top;
+    top: -30px;
+}
+
+.zig-zag-bottom:after {
+    background: linear-gradient(-135deg, #FFF 16px, red 16px, blue 16px, transparent 0), linear-gradient(135deg, #FFF 16px, transparent 0);
+    background-position: left bottom;
+    background-size: 22px 32px;
+}
