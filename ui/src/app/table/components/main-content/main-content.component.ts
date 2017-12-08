@@ -29,4 +29,9 @@ export class MainContentComponent implements OnInit {
   public trackByFn(item: BeerItem) {
     return item != null ? item.id : null;
   }
+
+  public addProduct(name: string) {
+    console.log('addProduct', name);
+    this.beersService.buyBeer(name, 1);
+  }
 }

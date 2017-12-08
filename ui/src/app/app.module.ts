@@ -16,6 +16,7 @@ import { LoginModule } from './login/login.module';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import {HttpClientModule} from '@angular/common/http';
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyAH1Vr8LEX5T2m_i2yrzjSosJyoBrCKbU4',
@@ -41,7 +42,8 @@ export const firebaseConfig = {
     RouterModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    HttpClientModule
   ],
   providers: [FakeDataService, AuthService, AuthGuardService],
   bootstrap: [AppComponent]

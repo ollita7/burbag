@@ -1,0 +1,299 @@
+(function(e, a) { for(var i in a) e[i] = a[i]; }(exports, /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// identity function for calling harmony imports with the correct context
+/******/ 	__webpack_require__.i = function(value) { return value; };
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports) {
+
+module.exports = require("express");
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports) {
+
+module.exports = require("firebase-admin");
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var express = __webpack_require__(0);
+var logger = __webpack_require__(11);
+var bodyParser = __webpack_require__(9);
+var root = __webpack_require__(8);
+var cookieParser = __webpack_require__(10);
+var routes = __webpack_require__(7);
+var admin = __webpack_require__(1);
+var app = express();
+// view engine setup
+app.set('views', root + "/server/views/");
+app.set('view engine', 'ejs');
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
+app.use(cookieParser());
+app.use('/', routes);
+var serviceAccount = __webpack_require__(5);
+admin.initializeApp({
+    credential: admin.credential.cert(serviceAccount),
+    databaseURL: 'https://beerbug-92bc5.firebaseio.com'
+});
+// catch 404 and forward to error handler
+app.use(function (req, res, next) {
+    var err = new Error('Not Found');
+    err.status = 404;
+    next(err);
+});
+// error handlers
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+    app.use(function (err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
+    });
+}
+app.use(function (err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
+});
+module.exports = app;
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+module.exports = require("debug");
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+module.exports = require("http");
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports) {
+
+module.exports = {"type":"service_account","project_id":"beerbug-92bc5","private_key_id":"c9c0698fa8718aac3074d197841f0e0eb59915d4","private_key":"-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCvgbhlosA6IXyi\nF5osxR9Ns0FQ6q9rg+ULOY4MHQpakHHnyh390VDthTzaYRclYctYBD4ruql5OGdu\n8MPyYT/BRU9dMyWAJMVYZOmWpJvv4jNnu2au5KqXDbBjVDz37qY8n70scbVbf8aP\nwzcYUG8WreMF4wQyxhrOL3Pg06CvvXHP8oyu2e5xUL84/YKiaFMFtiBRsJh47IHp\npl965oU+sjljQkHxVgTI+7CGTT2wbioSvhNyIFO+SQhPjUnAFm8Obdv1ov+Pm/mu\n3y4e8MrXOEOJm2GhlD8/ohefetX+zCaZv2gS4QkaIu/FucY10zT78pgvP928ZOV7\nJgTLhwU5AgMBAAECggEAHW0iSfY1BToen73V1YpSgpBa0/KZaW0ynsRuZuUKmp8r\n3flzOF6bU0u65YGQZC3mrnH9q47PQfodS4pWTEIWcrUIhr+f2sGvje/Tg3TDiX+z\nb0HKSGoiGRQMPkc+NrK+kB0XVoeVKQt+MxX/25WG3rZWgWLsDghNr8LgirJo93YE\nozGF2jSZlcxqUxAXPhaiyNynW7Umx73lyzqt6qYiPS5PKOO/ZmIcIYUuF/Nt8Bg+\nmvGVTAPIO6RoUOiNjO43gY+dkF0eGxB6oTJMu/7gQ1DlGYDB3kYJAHksHjIc1hQB\nfIF3hSKlJHmescH1XK9MaMcTrBsBbHxjIs4592ga1QKBgQDd0fm3ZonJrwBpJWaC\np8+Ls5hVGLF84EliPmAAO6pAyO54s+qRRPrmT6P5TzTd+hVyCcFIJabKwd6KmwGE\nmnG52jCGLLFTSrB9akzvQ1PxccBkCTMG5CM4X0iMi44EdoGhZUxtORMmdJ+w0f9I\nr1VSqpRpLRRZpuDYilUJqSazfQKBgQDKjNdEGpkyuPW2I4/0+PCOKP3gdi6AUfQ0\nU0NREY8ssegE5U1N5mVYqxxZyGzZCLeDIK691JbWdUlbYucNFaqpbqrLyDG8euj8\n8TtFdjCVwkhCsY0savVkQ8A1OS8p3GA4dld5+MrDR4GrW9SOvSxejPOuBFmZE00W\nsSujJ1BNbQKBgQCced31YVD7xAa/JZH9wxEmlId2KBg0Zid+NVAVegFs+BE5dnmX\nBpkTVMTwPs6ldCAitPzyvxS83Sv2jMfyWdy15VProqVogzyjDBS/h7g0jzDPoKmt\nR8wMnTKZamzBezOQvdu/BM8chpKL8mdqR70htpFA7Hr5jz33owW/7eIOJQKBgHtB\nCR1gMikzdBHJwigH9BoNx693OwTK2hedMzF5xe4ktFOGVWw57yHtverEk7feHg2l\nLbBGVSNba7A4lvDXZmqD9VrcD6fqAy0ofjDeouH+v4oWERoeXAUPVT8N9S079TFm\nkgSe6IO8V6O21bmmVAGVNBOIgh0sKZTNawh1O+BhAoGAeJSCVyQ3kmujl2D38qCY\nnbXkP/xSXP/rIT2o2Ug8sFz8BASTg3JtKkYrfiMEmjAXcj94HuypUJ0SZDdh/Xwb\nmv6OjRqF6ZhVXO3nSTThx2T8ERiEjB7lb3OfDGyZ1eWTzAb//+pstr2FY0fa4Iil\nlBaEU5I3cLb/JkZjsEASeIU=\n-----END PRIVATE KEY-----\n","client_email":"firebase-adminsdk-igkba@beerbug-92bc5.iam.gserviceaccount.com","client_id":"107935209793985141469","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://accounts.google.com/o/oauth2/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_x509_cert_url":"https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-igkba%40beerbug-92bc5.iam.gserviceaccount.com"}
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+/**
+ * Module dependencies.
+ */
+var app = __webpack_require__(2);
+var http = __webpack_require__(4);
+var debug = __webpack_require__(3);
+// binding to console
+var log = debug('modern-express:server');
+log.log = console.log.bind(console);
+/**
+ * Get port from environment and store in Express.
+ */
+var PORT = process.env.PORT || '3000';
+function getPort(val) {
+    /**
+     * Normalize a port into a number, string, or false.
+     */
+    var port = parseInt(val, 10);
+    if (isNaN(port)) {
+        // named pipe
+        return val;
+    }
+    if (port >= 0) {
+        // port number
+        return port;
+    }
+    return false;
+}
+app.set('port', PORT);
+/**
+ * Create HTTP server.
+ */
+var server = http.createServer(app);
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+server.listen(PORT);
+server.on('error', function (error) {
+    /**
+     * Event listener for HTTP server "error" event.
+     */
+    if (error.syscall !== 'listen') {
+        throw error;
+    }
+    var bind = typeof PORT === 'string' ? "Pipe " + PORT : "Port " + PORT;
+    // handle specific listen errors with friendly messages
+    switch (error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges');
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use');
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
+});
+server.on('listening', function () {
+    /**
+     * Event listener for HTTP server "listening" event.
+     */
+    var addr = server.address();
+    var bind = (typeof addr === 'string' ? "pipe " + addr : "port " + addr.port);
+    log("Listening on " + bind);
+});
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var express = __webpack_require__(0);
+var router = express.Router();
+var admin = __webpack_require__(1);
+router.get('/', function (req, res, next) {
+    res.render('index', {
+        title: 'Express'
+    });
+});
+router.post('/buying', function (req, res, next) {
+    console.log('/buying', req.body.brand, req.body.quantity);
+    var brand = req.body.brand;
+    var quantity = req.body.quantity;
+    var brands = ['Patricia', 'Corona', 'Zilertal', 'Pilsen'];
+    var db = admin.database();
+    var ref = db.ref('beers/' + brand + '/price');
+    ref.transaction(function (value) {
+        return value + quantity;
+    });
+    for (var i = 0; i < brands.length; i++) {
+        if (brands[i] !== brand) {
+            ref = db.ref('beers/' + brands[i] + '/price');
+            ref.transaction(function (value) {
+                return value - quantity / (brands.length - 1);
+            });
+        }
+    }
+    res.send();
+});
+module.exports = router;
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+module.exports = require("app-root-path");
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports = require("body-parser");
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = require("cookie-parser");
+
+/***/ }),
+/* 11 */
+/***/ (function(module, exports) {
+
+module.exports = require("morgan");
+
+/***/ })
+/******/ ])));
